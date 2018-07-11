@@ -1,6 +1,5 @@
 import { Get, Controller, UseGuards } from '@nestjs/common'
-import { AppService } from './app.service'
-import { AuthGuard } from '@nestjs/passport'
+import { AppService } from 'app.service'
 
 @Controller()
 export class AppController {
@@ -11,10 +10,4 @@ export class AppController {
     return this.appService.root()
   }
 
-  @Get('users')
-  @UseGuards(AuthGuard('bearer'))
-  findAll() {
-    console.log('in')
-    return []
-  }
 }
